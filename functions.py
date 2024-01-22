@@ -68,7 +68,7 @@ def checkForImportChanges(local_files: list, remote_files: list):
         if local_file["Filename"] != remote_file["Filename"]:
             print(f'{print_prefix} Local file {local_file["Filename"]} missmatch to remote file {remote_file["Filename"]}')
             return True
-        if local_file["Modified"] < remote_file["Modified"]:
+        if local_file["Modified"] < remote_file["Modified"] and '.xlsx' in remote_file["Filename"]:
             print(f'{print_prefix} Detected more recent changes to remote version of file {remote_file["Filename"]}')
             return True
     return False
